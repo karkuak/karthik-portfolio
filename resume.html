@@ -3,117 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karthik Sivakumar | Resume</title>
+  <title>Karthik Sivakumar | QA Trailblazer & Tech Program Leader</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f7fa;
+      background: linear-gradient(to right, #f0f4ff, #fef6ff);
       color: #333;
     }
     header {
-      background-color: #222;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
       color: #fff;
       padding: 60px 20px;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     header h1 {
       margin: 0;
       font-size: 2.8em;
     }
     header p {
-      font-size: 1.2em;
+      font-size: 1.3em;
       margin-top: 10px;
     }
     section {
-      padding: 40px 20px;
+      background-color: #ffffff;
+      padding: 40px 30px;
       max-width: 1000px;
-      margin: auto;
+      margin: 30px auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
     h2 {
-      color: #1a202c;
+      color: #2c3e50;
       border-bottom: 2px solid #ddd;
       padding-bottom: 5px;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
+    ul li {
+      margin: 10px 0;
+      line-height: 1.6;
     }
-    ul li::before {
-      content: "✓ ";
-      color: #007acc;
-    }
-    .card {
-      background: white;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    .portfolio-item h3 {
+      margin-bottom: 5px;
+      color: #e67e22;
     }
     footer {
       text-align: center;
       padding: 20px;
-      background-color: #eee;
+      background-color: #f0f0f0;
       font-size: 0.9em;
+      color: #555;
     }
     a {
-      color: #007acc;
+      color: #2980b9;
       text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: #e74c3c;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Karthik Sivakumar</h1>
-    <p>QA Leader | Technical Program Manager | EMBA Candidate @ Chicago Booth</p>
+    <p><em>Crafting Quality, Driving Innovation, Leading with Purpose</em></p>
+    <p>🌟 QA Visionary | 🚀 Technical Program Manager | 🎓 EMBA @ Chicago Booth</p>
   </header>
 
-  <section>
-    <div class="card">
-      <h2>Skills</h2>
-      <ul>
-        <li>Test Automation Strategy & Implementation</li>
-        <li>Technical Program Management</li>
-        <li>Cross-functional Stakeholder Collaboration</li>
-        <li>CI/CD Integration for QA</li>
-        <li>Team Leadership & Mentorship</li>
-      </ul>
-    </div>
+  <section id="about">
+    <h2>Executive Snapshot</h2>
+    <p>I’m a tech-savvy, business-smart Quality Engineering leader with 18+ years of shaping world-class software experiences at Amazon, Apple, and beyond. Whether launching AI-native automation or leading global teams across time zones, I deliver resilient systems that scale. With a Booth EMBA in progress, I fuse strategic clarity with engineering precision to craft solutions that stick—and scale.</p>
+  </section>
 
-    <div class="card">
-      <h2>Companies Worked With</h2>
-      <ul>
-        <li>Amazon (QA Lead, TPM) – Prime Reading, AirTech, Kindle</li>
-        <li>Apple (QA Engineer) – Media & iOS Features</li>
-        <li>Meijer (QA Architect) – Retail Platforms</li>
-      </ul>
-    </div>
+  <section id="portfolio">
+    <h2>Signature Strengths</h2>
+    <ul>
+      <li><strong>Visionary Leadership:</strong> Spearheaded $3.2M QA programs and mobilized 40+ global engineers to redefine quality at scale.</li>
+      <li><strong>GenAI Trailblazer:</strong> Deployed AI-driven test-case creation using Amazon Bedrock, slashing manual effort by 60% and catching 25% more defects.</li>
+      <li><strong>CI/CD Maestro:</strong> Designed zero-touch pipelines with GitHub Actions and Jenkins—achieving 95% automation and near-zero rollbacks.</li>
+      <li><strong>Cloud-First Architect:</strong> Scaled infrastructure on AWS, GCP & Kubernetes to support real-time, high-availability products.</li>
+      <li><strong>Performance Strategist:</strong> Boosted platform reliability with JMeter & k6; saved 100+ dev hours/month via intelligent dashboards.</li>
+    </ul>
+  </section>
 
-    <div class="card">
-      <h2>Technical Stack</h2>
-      <ul>
-        <li>Cypress, Selenium, Appium</li>
-        <li>JavaScript, Python, Java</li>
-        <li>Jenkins, GitHub Actions, AWS CDK</li>
-        <li>TestRail, Jira, XCUITest</li>
-        <li>Postman, REST APIs, Feature Flags</li>
-      </ul>
-    </div>
+  <section id="experience">
+    <h2>Professional Experience</h2>
+    <p><strong>Amazon – Senior Quality Engineering Manager | Amazon AirTech</strong><br>
+    2021 – Present, Nashville/Chicago<br>
+    - Directed QA strategy and $3.2M roadmap for 7 consumer-facing cloud products.<br>
+    - Architected AirTechCypressLib; reduced flaky tests 80%, CI coverage to 95%.<br>
+    - Championed AI-driven automation with Bedrock; saved $1.2M annually.<br>
+    - Built OKR-based dashboards (Grafana); minimized escape rate to 0.12 per KLoC.<br>
+    </p>
+    <p><strong>Apple – Software Dev Manager in Test | Special Projects Group</strong><br>
+    2019 – 2020, Cupertino, CA<br>
+    - Built ML-backed test precision tools; increased defect detection by 40%.<br>
+    - Developed k6-based load test harness across platforms.<br>
+    </p>
+    <p><strong>EPITEC / Spectrum Health – Lead QA Architect (Consultant)</strong><br>
+    2018 – 2019, Grand Rapids, MI<br>
+    - Built HIPAA-compliant QA pipelines and regression tools for patient portals.<br>
+    - Integrated performance and compliance tracking in test suites.<br>
+    </p>
+    <p><strong>Meijer – QA & Release Manager | E-commerce</strong><br>
+    2015 – 2018, Grand Rapids, MI<br>
+    - Reduced regression time from 3 days to 6 hours; enabled CI/CD.<br>
+    - Improved post-release defect rate by 70% during retail peak cycles.<br>
+    </p>
+    <p><strong>Wipro – QA Lead | Retail & Payments</strong><br>
+    2007 – 2015, Milwaukee, WI<br>
+    - Managed PCI-compliant QA for POS systems.<br>
+    - Reduced test cycle time by 30% with automation and SQL-based validations.<br>
+    </p>
+  </section>
 
-    <div class="card">
-      <h2>Certifications</h2>
-      <ul>
-        <li>Executive MBA Candidate – University of Chicago Booth</li>
-        <li>ISTQB Certified Tester</li>
-        <li>Scrum Master (CSM)</li>
-        <li>Certified AWS Cloud Practitioner</li>
-      </ul>
-    </div>
+  <section id="education-certifications">
+    <h2>Education & Certifications</h2>
+    <ul>
+      <li><strong>Executive MBA</strong> – University of Chicago Booth School of Business (Expected 2026)</li>
+      <li><strong>B.E.</strong> – Electronics & Communication, Anna University</li>
+      <li>PMP (Valid through 2026), ISTQB CTAL, AWS Certified Solutions Architect, Lean Six Sigma Green Belt</li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Toolkit</h2>
+    <ul>
+      <li><strong>Languages:</strong> Python, Java, JavaScript/TypeScript, Swift</li>
+      <li><strong>DevOps & Cloud:</strong> AWS, GCP, Docker, Kubernetes, Jenkins, GitHub Actions</li>
+      <li><strong>Frameworks & Tools:</strong> Cypress, Playwright, Selenium, Appium, JMeter, k6, Grafana</li>
+      <li><strong>AI/ML Tools:</strong> Amazon Bedrock, SageMaker, TensorFlow</li>
+    </ul>
+  </section>
+
+  <section id="community">
+    <h2>Leadership & Community</h2>
+    <ul>
+      <li>Panelist – “AI in Quality Engineering” @ AWS re:Invent 2024</li>
+      <li>Contributor – “Shift-Left Testing” @ Test Automation Summit 2023</li>
+      <li>Mentor – Amazon Bar Raiser Program</li>
+      <li>Advisor – Quality Engineering Bootcamp, Grand Rapids Tech Hub</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:karthik@example.com">karthik@example.com</a><br>
+    LinkedIn: <a href="https://www.linkedin.com/in/karthiksiva">linkedin.com/in/karthiksiva</a></p>
   </section>
 
   <footer>
-    &copy; 2025 Karthik Sivakumar. All rights reserved. | <a href="mailto:karthik@example.com">karthik@example.com</a>
+    &copy; 2025 Karthik Sivakumar. All rights reserved.
   </footer>
 </body>
 </html>
