@@ -1,118 +1,471 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karthik Sivakumar | QA Leader & Technical PM</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #111;
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      color: #222;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-    }
-    .portfolio-item {
-      margin-bottom: 30px;
-    }
-    .portfolio-item h3 {
-      margin-bottom: 5px;
-      color: #007acc;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #eee;
-      font-size: 0.9em;
-    }
-    a {
-      color: #007acc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karthik Sivakumar | QA Manager & TPM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+            color: #212529;
+        }
+        .section-title {
+            color: #343A40;
+        }
+        .brand-text {
+             color: #007BFF;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: #007BFF;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #007BFF;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .chart-container {
+            position: relative; 
+            width: 100%; 
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 500px;
+            }
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>Karthik Sivakumar</h1>
-    <p>QA Leader | Technical Program Manager | EMBA Candidate @ Chicago Booth</p>
-  </header>
+<body class="antialiased">
+    <!-- Chosen Palette: Minimalist Professional (Background: #F8F9FA, Text: #212529, Primary Accent: #007BFF, Headers: #343A40) -->
+    <!-- Application Structure Plan: A single-page narrative structure guiding users from a high-level introduction (Hero) to a detailed summary (About), then into an interactive deep-dive of professional history (Experience). This is followed by a visual summary of capabilities (Skills) and a clear call to action (Contact). The key interaction is a modal for project details, which keeps the main page clean and scannable while offering rich information on demand. This user flow is designed to be intuitive for recruiters, allowing them to either get a quick overview or explore in-depth with minimal clicks. -->
+    <!-- Visualization & Content Choices: 
+        Resume Info: Career History -> Goal: Organize & Compare -> Viz/Presentation: Interactive timeline/card grid with modals -> Interaction: Click card to open modal -> Justification: The modal approach presents a clean, high-level timeline first, preventing information overload. It allows users to self-select which roles they want to explore deeper, making the experience interactive and user-directed. This respects the recruiter's time while still providing comprehensive details. Method: HTML/CSS/JS.
+        Resume Info: Technical Skills -> Goal: Compare & Inform -> Viz/Presentation: Horizontal Bar Chart (Chart.js) -> Interaction: Hover for tooltips showing details -> Justification: A bar chart is more engaging than a static list and effectively visualizes the relative depth of experience across different technical domains, a key selling point. It quickly answers "What are his core technical strengths?". Library: Chart.js.
+        Resume Info: Key Achievements (e.g., "40% accuracy improvement") -> Goal: Inform & Impact -> Viz/Presentation: Highlighted text/badges within project modals -> Interaction: Static display -> Justification: Placing quantifiable results directly within the context of the project where they were achieved makes them more powerful and believable. Method: HTML/CSS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I’m a seasoned QA Engineer and Technical Program Manager with 16+ years of experience leading test automation and quality strategies at Amazon. Currently pursuing my Executive MBA at the University of Chicago Booth, I specialize in bridging engineering execution with strategic business outcomes.</p>
-    <p>I’ve developed scalable test frameworks, integrated CI/CD pipelines, and driven cross-functional initiatives across Kindle, Prime Reading, and AirTech organizations at Amazon.</p>
-    <a href="/resume.html">View My Resume</a>
-  </section>
+    <div id="app">
+        <header id="header" class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-40 shadow-sm">
+            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#home" class="text-xl font-bold brand-text">Karthik Sivakumar</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="block w-6 h-0.5 bg-gray-600"></span>
+                    <span class="block w-6 h-0.5 bg-gray-600 mt-1.5"></span>
+                    <span class="block w-6 h-0.5 bg-gray-600 mt-1.5"></span>
+                </button>
+            </nav>
+            <div id="mobile-menu" class="hidden md:hidden bg-white">
+                <a href="#home" class="block py-2 px-6 text-sm hover:bg-gray-100">Home</a>
+                <a href="#about" class="block py-2 px-6 text-sm hover:bg-gray-100">About</a>
+                <a href="#experience" class="block py-2 px-6 text-sm hover:bg-gray-100">Experience</a>
+                <a href="#skills" class="block py-2 px-6 text-sm hover:bg-gray-100">Skills</a>
+                <a href="#contact" class="block py-2 px-6 text-sm hover:bg-gray-100">Contact</a>
+            </div>
+        </header>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
+        <main>
+            <section id="home" class="min-h-screen flex items-center bg-white pt-16">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold section-title">Karthik Sivakumar</h1>
+                    <p class="mt-4 text-xl md:text-2xl text-gray-600">
+                        Senior QA Manager & Technical Program Manager
+                    </p>
+                    <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-500">
+                        Results-driven leader with 17+ years of experience architecting quality strategies for cloud-native applications, driving engineering excellence, and delivering high-velocity, high-quality product releases.
+                    </p>
+                    <a href="#experience" class="mt-8 inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">
+                        Explore My Work
+                    </a>
+                </div>
+            </section>
 
-    <div class="portfolio-item">
-      <h3>AirTech Cypress Automation Framework</h3>
-      <p>Designed and implemented a reusable Cypress library supporting authentication, feature toggles, TestRail integration, and CI/CD execution. Enabled automation for 6+ teams, reducing manual QA efforts by 80%.</p>
+            <section id="about" class="py-20 md:py-32">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center section-title">About Me</h2>
+                    <div class="mt-12 grid md:grid-cols-5 gap-12 items-start">
+                        <div class="md:col-span-3 space-y-8 text-gray-600 text-lg leading-relaxed">
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Leadership & Strategy</h3>
+                                <p>As a seasoned QA leader, I specialize in designing robust automation frameworks and architecting quality strategies for complex systems, including cloud-native applications, distributed data systems, and large-scale analytics platforms. My experience spans both enterprise technology and healthcare, giving me a deep understanding of quality standards, regulatory compliance, and engineering excellence. I have a proven track record of building scalable test infrastructure, integrating with CI/CD pipelines, and fostering a quality-first culture across cross-functional teams.</p>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Technical Expertise</h3>
+                                <p>My technical expertise lies in building scalable developer tools, data-driven evaluation systems, and cloud-integrated CI/CD pipelines. I am an expert in testing cloud-based services (AWS), REST APIs, data pipelines, and visualization platforms. With a passion for performance and load testing, I optimize systems for resilience under peak loads using tools like JMeter and k6. I am also passionate about leveraging AI and machine learning to enhance testing efficiency and create self-healing automation frameworks.</p>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2 bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+                             <h3 class="text-2xl font-semibold text-gray-700 mb-4">Education & Certifications</h3>
+                             <div class="space-y-6">
+                                <div>
+                                    <p class="font-bold text-blue-600">Executive MBA Candidate</p>
+                                    <p class="text-gray-600">University of Chicago – Booth School of Business</p>
+                                    <p class="text-sm text-gray-500">2024 - 2026</p>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-blue-600">Bachelor of Engineering (BE)</p>
+                                    <p class="text-gray-600">Anna University, Chennai</p>
+                                </div>
+                                <div class="border-t pt-6">
+                                    <p class="font-bold text-blue-600 mb-2">Key Certifications</p>
+                                    <ul class="list-none space-y-2 text-gray-600">
+                                        <li>▶ Project Management Professional (PMP)</li>
+                                        <li>▶ ISTQB Advanced Level Test Manager (CTAL)</li>
+                                        <li>▶ ITIL® v3 Foundation</li>
+                                        <li>▶ Lean Six Sigma Green Belt</li>
+                                    </ul>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="experience" class="py-20 md:py-32 bg-white">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center section-title">Professional Experience</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-center text-gray-500 text-lg">Click on any role to view detailed projects and key achievements. This section highlights my journey through leading tech companies and diverse industries, showcasing my impact on quality and engineering.</p>
+                    <div id="experience-container" class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="py-20 md:py-32">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center section-title">Technical Skills & Expertise</h2>
+                     <p class="mt-4 max-w-2xl mx-auto text-center text-gray-500 text-lg">This visualization represents my core competencies across different technology domains. The length of the bar corresponds to the depth and years of my hands-on experience and leadership in each area.</p>
+                    <div class="mt-16">
+                       <div class="chart-container">
+                           <canvas id="skillsChart"></canvas>
+                       </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="py-20 md:py-32 bg-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title">Let's Connect</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
+                        I am actively seeking new opportunities where I can leverage my experience in quality assurance and technical program management. Feel free to reach out.
+                    </p>
+                    <div class="mt-8 flex justify-center items-center space-x-6">
+                         <a href="mailto:kaarthikk.sivakumar@gmail.com" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300">
+                            Email Me
+                        </a>
+                        <a href="https://www.linkedin.com/in/karthik-s-b4194530a/" class="text-blue-500 font-semibold hover:underline">
+                            LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="bg-gray-800 text-white py-6">
+            <div class="container mx-auto px-6 text-center text-sm">
+                <p>&copy; 2024 Karthik Sivakumar. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+        <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 hidden modal-overlay">
+            <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 transform scale-95 opacity-0 modal-content">
+                <div id="modal-body"></div>
+                <button id="modal-close" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            </div>
+        </div>
     </div>
 
-    <div class="portfolio-item">
-      <h3>Kindle Unlimited QA Strategy</h3>
-      <p>Built test strategies that streamlined feature rollouts and enabled faster, more reliable releases. Led the team in increasing test coverage and orchestrated high-impact bug bashes.</p>
-    </div>
+    <script>
+        const experienceData = [
+            {
+                id: 'amazon',
+                company: 'Amazon',
+                role: 'Quality Engineering Manager (TPM)',
+                dates: 'July 2021 - Present',
+                logo: 'A',
+                color: 'bg-yellow-400',
+                projects: [
+                    {
+                        title: 'QE Transformation for Air Science & Tech',
+                        description: 'Led a large-scale QE transformation across six engineering teams, defining and deploying a unified, modular automation framework to standardize testing and improve release velocity.',
+                        achievements: [
+                            'Architected and rolled out a Cypress-based framework integrated with CI/CD pipelines.',
+                            'Championed a culture of quality-first engineering through shared frameworks and documentation.',
+                            'Enabled decentralized quality ownership, aligning with leadership priorities on engineering excellence.'
+                        ]
+                    },
+                    {
+                        title: 'Quality Architecture for Simulation & Data Platforms',
+                        description: 'Architected and led the quality strategy for AWS-hosted platforms supporting complex simulation workflows, test orchestration, and data flow validation across multiple microservices.',
+                        achievements: [
+                            'Oversaw test strategy for large-scale data processing workflows, ensuring data integrity and API validation.',
+                            'Led "shift-left" quality enablement for Infrastructure as Code (CDK), validating provisioning and edge cases.',
+                            'Conducted performance testing with k6 and JMeter to ensure system resilience.'
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'apple',
+                company: 'Apple',
+                role: 'Software Development Manager in Test',
+                dates: 'Sep 2019 - May 2021',
+                logo: '',
+                color: 'bg-gray-800',
+                projects: [
+                    {
+                        title: 'ML Data Evaluation Pipeline',
+                        description: 'Architected and managed the development of automated data evaluation pipelines for machine learning platforms, significantly improving the accuracy and efficiency of data validation.',
+                        achievements: [
+                            'Improved data evaluation accuracy by 40% by combining real-world drive data with ML validation logic.',
+                            'Created reusable CI/CD templates and test orchestration logic, automating release validations.',
+                            'Partnered with infrastructure and product teams to define SLAs, performance KPIs, and quality gates.'
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'epitec',
+                company: 'EPITEC (for Spectrum/Corewell Health)',
+                role: 'Software QA Lead',
+                dates: 'Oct 2018 - Sep 2019',
+                logo: 'E',
+                color: 'bg-teal-500',
+                projects: [
+                    {
+                        title: 'Healthcare Systems QA Leadership',
+                        description: 'Oversaw all QA processes for Spectrum (Corewell) Health, a major healthcare provider, ensuring compliance and quality for critical patient-facing and internal systems.',
+                        achievements: [
+                            'Led automation of web, mobile, and API testing using Selenium, Appium, and Postman within custom frameworks.',
+                            'Built custom test automation libraries and analysis tools to evaluate healthcare application workflows.',
+                            'Led integration of data pipelines with automated regression and performance testing suites.'
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'meijer',
+                company: 'Meijer',
+                role: 'Software QA and Release Manager',
+                dates: 'July 2015 - Oct 2018',
+                logo: 'M',
+                color: 'bg-red-500',
+                projects: [
+                    {
+                        title: 'Digital & E-commerce QA Strategy',
+                        description: 'Spearheaded the QA and Release strategy for major digital transformation programs, including E-commerce and Supply Chain, ensuring seamless weekly releases and high quality standards.',
+                        achievements: [
+                            'Enhanced test coverage to 95% and cut test execution time by 50% through CI/CD adoption.',
+                            'Managed globally distributed vendor teams, scaling QA capacity without compromising quality.',
+                            'Directed release strategy for SAP Hybris and implemented robust backend performance metrics and quality dashboards.'
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'wipro',
+                company: 'Wipro (for Target, Kohl’s)',
+                role: 'QA Lead',
+                dates: 'July 2007 - June 2015',
+                logo: 'W',
+                color: 'bg-sky-500',
+                projects: [
+                    {
+                        title: 'Retail & Financial Systems QA',
+                        description: 'Championed QA processes and frameworks for major retail clients, including Target and Kohl’s, focusing on payment processing, financial systems, and data integrity.',
+                        achievements: [
+                            'Reduced testing phase duration by 30% through strategic automation and process optimization.',
+                            'Utilized SQL for extensive backend testing and data validation, ensuring compliance with financial regulations.',
+                            'Leveraged multiple defect tracking and test management tools to streamline the QA lifecycle.'
+                        ]
+                    }
+                ]
+            }
+        ];
+        
+        const skillsData = {
+            labels: ['QA Strategy & Leadership', 'Test Automation Frameworks (Cypress, Selenium)', 'CI/CD & DevOps Integration', 'Cloud & API Testing (AWS, REST)', 'Performance Testing (JMeter, k6)', 'Data & ML Pipeline Validation', 'Release & Program Management'],
+            datasets: [{
+                label: 'Years of Experience & Expertise Depth',
+                data: [17, 15, 12, 10, 10, 8, 15],
+                backgroundColor: 'rgba(0, 123, 255, 0.6)',
+                borderColor: 'rgba(0, 123, 255, 1)',
+                borderWidth: 1
+            }]
+        };
 
-    <div class="portfolio-item">
-      <h3>Prime Reading Feature Automation</h3>
-      <p>Delivered hybrid API + UI test coverage with reduced flakiness and increased release speed by 2 weeks on average per launch cycle.</p>
-    </div>
-  </section>
+        document.addEventListener('DOMContentLoaded', () => {
+            const experienceContainer = document.getElementById('experience-container');
+            experienceData.forEach(exp => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transform transition duration-300 cursor-pointer';
+                card.dataset.id = exp.id;
+                card.innerHTML = `
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full ${exp.color} text-white flex items-center justify-center text-2xl font-bold">
+                           ${exp.logo}
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">${exp.company}</h3>
+                            <p class="text-gray-500">${exp.role}</p>
+                            <p class="text-sm text-gray-400">${exp.dates}</p>
+                        </div>
+                    </div>
+                `;
+                experienceContainer.appendChild(card);
+            });
 
-  <section id="experience">
-    <h2>Detailed Experience</h2>
-    <p><strong>Amazon (2018–Present)</strong><br>
-    - QA Lead, Prime Reading & Kindle Unlimited<br>
-    - QA & TPM, AirTech Subscriptions<br>
-    - Built scalable automation frameworks and delivered cross-team QA initiatives impacting product velocity and customer satisfaction.<br>
-    </p>
-    <p><strong>Apple (2019–2020)</strong><br>
-    - QA Engineer, Media Products<br>
-    - Led test automation for high-scale iOS features. Delivered test coverage using XCUITest and internal CI tooling.</p>
-    <p><strong>Meijer (Until 2018)</strong><br>
-    - QA Architect<br>
-    - Designed automation test suites for large-scale retail platforms, modernizing legacy test processes.</p>
-  </section>
+            const skillsChartCtx = document.getElementById('skillsChart').getContext('2d');
+            new Chart(skillsChartCtx, {
+                type: 'bar',
+                data: skillsData,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` Expertise Level: ${context.raw}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Experience & Expertise Depth (Relative Scale)'
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                autoSkip: false
+                            }
+                        }
+                    }
+                }
+            });
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:karthik@example.com">karthik@example.com</a><br>
-    LinkedIn: <a href="https://www.linkedin.com/in/karthiksiva">linkedin.com/in/karthiksiva</a></p>
-  </section>
+            const modalOverlay = document.getElementById('modal-overlay');
+            const modalContent = document.getElementById('modal-content');
+            const modalBody = document.getElementById('modal-body');
+            const modalClose = document.getElementById('modal-close');
 
-  <footer>
-    &copy; 2025 Karthik Sivakumar. All rights reserved.
-  </footer>
+            experienceContainer.addEventListener('click', (e) => {
+                const card = e.target.closest('[data-id]');
+                if (card) {
+                    const expId = card.dataset.id;
+                    const data = experienceData.find(d => d.id === expId);
+                    if (data) {
+                        modalBody.innerHTML = `
+                            <h2 class="text-3xl font-bold text-gray-800">${data.company}</h2>
+                            <p class="text-lg text-gray-500 mt-1">${data.role} | ${data.dates}</p>
+                            <div class="mt-6 space-y-6">
+                                ${data.projects.map(p => `
+                                    <div class="border-t pt-4">
+                                        <h4 class="text-xl font-semibold text-blue-600">${p.title}</h4>
+                                        <p class="mt-2 text-gray-600">${p.description}</p>
+                                        <ul class="mt-3 list-disc list-inside space-y-1 text-gray-700">
+                                            ${p.achievements.map(a => `<li>${a}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                        modalOverlay.classList.remove('hidden');
+                        setTimeout(() => {
+                           modalOverlay.classList.remove('opacity-0');
+                           modalContent.classList.remove('scale-95', 'opacity-0');
+                        }, 10);
+                    }
+                }
+            });
+
+            const closeModal = () => {
+                modalOverlay.classList.add('opacity-0');
+                modalContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    modalOverlay.classList.add('hidden');
+                }, 300);
+            };
+
+            modalClose.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    closeModal();
+                }
+            });
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+
+    </script>
 </body>
 </html>
